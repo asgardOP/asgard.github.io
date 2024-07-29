@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahraa</title>
+</head>
+
+<style>
+
+    :root{
+        --color1: red;
+        --color2: rgb(0, 98, 168);
+        --color3: white;
+    }
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+
+    body{
+        background-color: var(--color1);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        overflow-x: hidden;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    nav{
+        width: 100%;
+        height: 70px;
+        background-color: var(--color1);
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 0px;
+        z-index: 999;
+    }
+
+    nav #name{
+        color: white;
+        font-size: 22px;
+        margin-left: 15px;
+        position: absolute;
+    }
+
+    nav #name span{
+        color: var(--color2);
+        text-shadow: 0px 0px 15px var(--color2);
+    }
+
+    nav #search-body{
+        width: 50%;
+        height: 45px;
+        border: 1px solid rgba(255, 255, 255, 0.119);
+        margin-left: auto;
+        margin-right: auto;
+        transform: translateX(15px);
+        border-radius: 10px;
+        position: relative;
+    }
+
+    nav #search-body .search-icon{
+        color: var(--color3);
+        height: 100%;
+        padding: 0px 10px;
+        border-right: 1px solid rgba(255, 255, 255, 0.119);
+    }
+
+    nav #search-body #search{
+        width: 80%;
+        height: 97%;
+        position: absolute;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        background-color: transparent;
+        color: var(--color3);
+        font-size: 18px;
+        padding-left: 10px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    nav #search-body #search:focus + #search-body{
+        border: 1px solid rgb(255, 255, 255);
+    }
+
+    nav .bars{
+        color: white;
+        position: absolute;
+        right: 10px;
+        width: 35px;
+        padding: 5px;
+        height: 35px;
+        transform: rotateY(180deg);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    nav .bars:hover{
+        background-color: var(--color2);
+
+    }
+
+    nav .bars:active{
+        transform: rotateY(180deg) scale(.8);
+    }
+
+    header{
+        width: 100%;
+        height: 30vh;
+        margin-top: 70px;
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        animation: backgroundAnimation 20s infinite ease;
+        position: relative;
+    }
+
+    @keyframes backgroundAnimation {
+        0% {
+            background-image: url('https://m.media-amazon.com/images/S/pv-target-images/461b46177682d87762cff889c98bab49d27d904c7bfd6cf58425a0e668af38fb.jpg');
+        }
+        25% {
+            background-image: url('https://m.economictimes.com/thumb/msid-109671640,width-1600,height-900,resizemode-4,imgsize-34652/the-garfield-movie.jpg');
+        }
+        50% {
+            background-image: url('https://occ-0-116-114.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABTeF8F-Z3HOR3rzj7kpgtWR-qj3WEJo8avot8-1PSv4Bn-0Zr04jqPuAkGug_LeIfbbwZJSrJ_-l0UdWQGYadobzqWooPvZ3BibtLxxIBkFM8gaxLBlLkUQOPV97AFnOILK5wA.jpg?r=77d');
+        }
+        75% {
+            background-image: url('https://gugimages.s3.us-east-2.amazonaws.com/wp-content/uploads/2022/10/16125134/p19657355_b_h8_af.jpeg');
+        }
+        100% {
+            background-image: url('https://m.media-amazon.com/images/S/pv-target-images/461b46177682d87762cff889c98bab49d27d904c7bfd6cf58425a0e668af38fb.jpg');
+        }
+    }
+
+    header::before{
+        content: 'New Added';
+        position: absolute;
+        width: fit-content;
+        height: fit-content;
+        background-color: var(--color2);
+        color: var(--color3);
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0%;
+        right: 0%;
+        bottom: -29px;
+        
+    }
+
+    nav .bars.touch-hover {
+        background-color: var(--color2);
+    }
+
+    
+
+.films{
+  width: 100%;
+  height: 220px;
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+.films2{
+  width: 98%;
+  height: 110%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  cursor: pointer;
+  padding-left: 10px;
+}
+.film{
+  width: fit-content;
+  height: 200px;
+  transition: 0.2s;
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 7px;
+  margin-right: 7px;
+  position: relative;
+  border-radius: 10px;
+  background: transparent; 
+  padding-bottom: 5px;
+}
+
+
+.film:hover{
+  transform: translateY(-5px);
+}
+
+.film:hover img{
+    filter: brightness(1.5);
+}
+
+.film img{
+  width: 105px;
+  height: 160px;
+  border-radius: 10px;
+  transition:0.2s;
+  object-fit: cover;
+  transition: .2s;
+}
+.film-name{
+  position: relative;
+  bottom:2px;
+  padding-left: 5px;
+  font-weight: 300;
+  color: white;
+  font-size: 14px;
+  margin-top: 5px;
+  transition: .2s;
+  width: 97px;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.imdb{
+  padding: 1px 7px;
+  margin-left: 2px;
+  border: 1px solid black;
+  width: fit-content;
+  background-color: goldenrod;
+  font-size: 13px;
+  transform: scale(0.8);
+  border-radius: 5px;
+  font-weight: 900;
+  color:black;
+}
+
+.rate{
+    color: white;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.type{
+    color: white;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
+
+
+
+
+a{text-decoration: none;
+  color: var(--color3)
+}
+
+#footer{
+  height: 160px;
+  background-color: rgb(0, 57, 107);
+  margin-top: 650px;
+  color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.132);
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    list-style: none
+}
+
+li{
+    margin: 30px;
+    transform: translateY(-15px);
+}
+
+
+#lownav{
+    width: 100%;
+  height: 250px;
+  background-color: var(--color1);
+}
+
+.d1{
+  width: 95%;
+  height: 185px;
+  background-color: white;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 120%;
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+  font-size: 25px;
+  text-shadow: 0px 0px 15px black;
+  transition: all .2s;
+}
+
+.d1:nth-child(1){
+    background-image: url('https://m.media-amazon.com/images/M/MV5BZWI1OWM3ZmEtNjQ2OS00NzI2LTgwNWMtZDAyMGI1OTM2MzJmXkEyXkFqcGdeQXVyNjc5NjEzNA@@._V1_.jpg');
+}
+
+.d1:nth-child(2){
+    background-image: url('https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/05/Harry-Potter-Movies-in-Order.jpg');
+}
+
+.d1:nth-child(3){
+    background-image: url('https://lucyvhayauthor.com/wp-content/uploads/2016/11/95fee3b5-9c81-45f9-857d-54cc114e8755.jpg');
+}
+
+.d1:nth-child(4){
+    background-image: url('https://wallpapers.com/images/featured/tom-and-jerry-2f5fbl2k3wwi31aq.jpg');
+}
+
+.d1:hover{
+    opacity: .7;
+    background-size: 130%;
+}
+
+.d1.touch-hover {
+    opacity: .7;
+    background-size: 130%;
+}
+
+#contact{
+    margin: 20px;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 10px;
+    background-color: var(--color2);
+}
+
+</style>
+
+<body>
+
+    <nav>
+        <p id="name">Sah<span>raa</span></p>
+        <div id="search-body">
+            <svg class="search-icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="1" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+            </svg>       
+            
+            <input type="text" id="search">
+
+        </div>
+
+        <svg class="bars w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-width="1" d="M5 7h14M5 12h14M5 17h10"/>
+        </svg>
+    </nav>
+
+
+    <header></header>
+
+
+
+
+    <div class="films">
+        <h1 class="type">Action & Adventure</h1>
+        <div class="films2">
+            <div class="film"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy6U_Js2F9cAZlu0PlSYP20-OibwVPGb5pwA&s"><p class="film-name">extraction</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+            <div class="film"> <img src="https://m.media-amazon.com/images/M/MV5BMjQ1NjM3MTUxNV5BMl5BanBnXkFtZTgwMDc5MTY5OTE@._V1_.jpg"><p class="film-name">hacksaw</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+            <div class="film"> <img src="https://m.media-amazon.com/images/M/MV5BNjk4MzVlM2UtZGM0ZC00M2M1LThkMWEtZjUyN2U2ZTc0NmM5XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_.jpg"><p class="film-name">El Camino</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+            <div class="film"> <img src="https://m.media-amazon.com/images/M/MV5BY2U5YmQ3YjgtM2I2OC00YmM5LTkyM2MtN2I5Zjg2MDE0ODkwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"><p class="film-name">Bad Boys</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+            <div class="film"> <img src="https://m.media-amazon.com/images/I/81dLj5FeX7L._AC_UF894,1000_QL80_.jpg"><p class="film-name">The Shawshank</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+        </div>
+    </div>
+    
+    <div class="films">
+        <h1 class="type">Horror & Vagueness</h1>
+        <div class="films2">
+            <div class="film"> <img src="https://m.media-amazon.com/images/M/MV5BNmVkMGM0ZTQtNDQwNS00NzgwLTkwYWYtNWE3MWFiOGUwODg5XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg"><p class="film-name">I Saw The Devil</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+            <div class="film"> <img src="https://m.media-amazon.com/images/I/81f0R7uwewL._AC_UF894,1000_QL80_.jpg"><p class="film-name">The Shining</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+            <div class="film"> <img src="https://m.media-amazon.com/images/I/717I+BtDJKL.jpg"><p class="film-name">The Saw</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+            <div class="film"> <img src="https://m.media-amazon.com/images/M/MV5BYTFkM2ViMmQtZmI5NS00MjQ2LWEyN2EtMTI1ZmNlZDU3MTZjXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg"><p class="film-name">28 Days Later</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+            <div class="film"> <img src="https://m.media-amazon.com/images/M/MV5BZDVkZmI0YzAtNzdjYi00ZjhhLWE1ODEtMWMzMWMzNDA0NmQ4XkEyXkFqcGdeQXVyNzYzODM3Mzg@._V1_.jpg"><p class="film-name">IT</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+        </div>
+    </div>
+    
+    <div class="films">
+        <h1 class="type">Animation</h1>
+        <div class="films2">
+            <div class="film"> <img src="https://m.media-amazon.com/images/M/MV5BMzI0NmVkMjEtYmY4MS00ZDMxLTlkZmEtMzU4MDQxYTMzMjU2XkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_FMjpg_UX1000_.jpg"><p class="film-name">Spider Man: across spider verse</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+            <div class="film"> <img src="https://m.media-amazon.com/images/M/MV5BYjQ5NjM0Y2YtNjZkNC00ZDhkLWJjMWItN2QyNzFkMDE3ZjAxXkEyXkFqcGdeQXVyODIxMzk5NjA@._V1_.jpg"><p class="film-name">Coco</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+            <div class="film"> <img src="https://external-preview.redd.it/fdj3Yew3KLV3WAfemVn5H8shCDnfDQ9eyZkwGEY8BYM.jpg?auto=webp&s=c4d1d46356504a9ad3a08f11a0b2a86b8063e73c"><p class="film-name">Cloudy With Meatballs</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+            <div class="film"> <img src="https://i.etsystatic.com/17257718/r/il/1557b9/2441195192/il_570xN.2441195192_8kka.jpg"><p class="film-name">Up</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+            <div class="film"> <img src="https://resizing.flixster.com/ySiX7RlyKRuuxCcAI7SgdkMAZ0U=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzc4ZmJhZjZiLTEzNWMtNDIwOC1hYzU1LTgwZjE3ZjQzNTdiNy5qcGc="><p class="film-name">Rotatouille</p><span class="imdb">imdb</span><span class="rate">9.9</span></div>
+        </div>
+    </div>
+
+
+    <h1 class="type">Sections</h1>
+
+    <div id="lownav">
+        <div class="d1">Hunger Game</div> 
+        <div class="d1">Harry Potter</div>
+        <div class="d1">The maze runner</div>
+        <div class="d1">Tom & Jerry</div>
+    </div>
+
+
+
+    <footer id="footer">
+      
+        <h3 id="contact">Contact Us:</h3>
+        <ul>
+          <li><a href="#Telegram">Telegram</a></li>
+          <li><a href="#Email">Email</a></li>
+          <li><a href="#Twiter">Twiter</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        document.getElementById('search').addEventListener('mouseover', function() {
+            document.getElementById('search-body').style.border = '2px solid rgb(255, 255, 255)';
+        });
+        document.getElementById('search').addEventListener('mouseout', function() {
+            document.getElementById('search-body').style.border = '1px solid rgba(255, 255, 255, 0.119)';
+        });
+
+        document.getElementById('search').addEventListener('focus', function() {
+            document.getElementById('search-body').style.border = '1px solid rgb(255, 255, 255)';
+        });
+        document.getElementById('search').addEventListener('blur', function() {
+            document.getElementById('search-body').style.border = '1px solid rgba(255, 255, 255, 0.119)';
+        });
+
+        const bars = document.querySelector('.bars');
+
+        bars.addEventListener('touchstart', function() {
+            bars.classList.add('touch-hover');
+            setTimeout(() => {
+                bars.classList.remove('touch-hover');
+            }, 200); 
+        });
+
+        const bars2 = document.querySelectorAll('.d1');
+
+        bars2.forEach(bar => {
+            bar.addEventListener('touchstart', function() {
+                bar.classList.add('touch-hover');
+                setTimeout(() => {
+                    bar.classList.remove('touch-hover');
+                }, 200);
+            });
+        });
+
+    </script>
+
+</body>
+</html>
